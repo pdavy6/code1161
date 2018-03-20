@@ -7,7 +7,7 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    pass
+pass
 
 
 def fix_it(moves=True, should_move=True):
@@ -21,17 +21,20 @@ def fix_it(moves=True, should_move=True):
     "Duct Tape"
     "No Problem"
     """
-    pass
-
-
+pass
 def loops_1a():
-    """Make 10 stars.
+    """Make 10 stars. 
 
     Using a for loop
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
-    """
-    pass
+    """ 
+"""
+my_return_list =[] 
+for counter in range(10)
+    my_return_list.append('*')
+    return my_return_list"""
+pass
 
 
 
@@ -43,10 +46,22 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    pass
-
-
+pass
+"""
+my_return_list =[] 
+for counter in range(10) 
+    my_return_list.append('*')
+    return my_return_list"""
+    
 def loops_2():
+    my_main_list = []
+    for main_list in range(10):
+        my_internal_list = []
+        for internal_list in range(10):
+            my_internal_list.append('*')
+    
+        my_main_list.append(my_internal_list)
+    return my_main_list
     """Make a big square starfield.
 
     return a list of 10 items, each one a list of 10 items,
@@ -64,10 +79,19 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    pass
+    
 
-
+    
 def loops_3():
+    my_main_list = []
+    for main_list in range(10):
+        my_internal_list = []
+        for internal_list in range(10):
+            my_internal_list.append(str(main_list))
+        my_main_list.append(my_internal_list)
+    return my_main_list
+
+
     """Make a rising block of numbers.
 
     Return this:
@@ -88,7 +112,7 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    pass
+    
 
 
 def loops_4():
@@ -108,7 +132,7 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    pass
+    
 
 
 def loops_5():
@@ -133,7 +157,7 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    pass
+    
 
 
 def loops_6():
@@ -156,7 +180,7 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    pass
+    
 
 
 def loops_7():
@@ -180,7 +204,7 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pass
+    
 
 
 def lp(some_kind_of_list, exercise_name):

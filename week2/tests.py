@@ -41,6 +41,7 @@ def syntax_error_message(e):
 def ex3runs(path):
     """Test w2 ex3 to check it works."""
     try:    
+        
         from week2 import exercise3
         return True
     except Exception as e:
