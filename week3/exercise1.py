@@ -12,15 +12,12 @@ def loop_ranger(start, stop=None, step=1):
 
     Do this using any method apart from just using range()
     """
-    
     n_list = []
-    number_a = start
-    number_b = stop
-    while number_a < number_b:
-        n_list.append(number_a)
-        number_a += step #this saves the value of step, updates counter
+    counter = start
+    while counter < stop:
+        n_list.append(counter)
+        counter += step #this saves the value of step, updates counter
     return n_list
-    
 
 
 def lone_ranger(start, stop, step):
@@ -29,12 +26,11 @@ def lone_ranger(start, stop, step):
     Look up the docs for range() and wrap it in a 1:1 way
     """
     l1_list = []
-    number_a = start
+    counter = start
     number_b = stop
-    step_1 = step
-    while number_a < number_b:
-        l1_list.append(number_a)
-        number_a += step_1
+    while counter < number_b:
+        l1_list.append(counter)
+        counter += step
     return l1_list
 
 def two_step_ranger(start, stop):
@@ -54,49 +50,44 @@ def two_step_ranger(start, stop):
 
 
 def gene_krupa_range(start, stop, even_step, odd_step):
+    step = 0
+    counter = start
+    a_list = []
+    while counter < stop:
+        a_list.append(counter)
+        if step % 2 == 1:
+            counter += even_step
+        else:
+           counter += odd_step
+        step += 1
+    return a_list
     """Make a range that has two step sizes.
 
     make a list that instead of having evenly spaced steps
     has odd steps be one size and even steps be another.
     """
-    n_list = []
-    number_a = start
+
+    l1_list = []
+    counter = start
     number_b = stop
-    odd = odd_step
-    even = even_step
-    counter = 1
-    while number_a < number_b:
-        n_list.append(number_a)
-        if counter % 2 == 1:
-            number_a += odd
-            counter += 1
-        else:
-            number_a += even
-            counter += 1
+    while counter < number_b:
+        l1_list.append(counter)
+        counter += even_step
+        l1_list.append(number_b)
+        counter += odd_step
+    return l1_list
 
-    return n_list
-
-import random
 def stubborn_asker(low, high):
-    
     guessed = False
-    
     while not guessed:
-        actualNumber = random.randint(low, high)
-        print(actualNumber)
-        guessedNumber = input("guess a numberbetween ("+str(low)+", "+str(high)+"): ")
-        n_int = int(guessedNumber)
-        print("you guessed {},".format(guessedNumber),)
-        if n_int == actualNumber:
-            print('you got it!! It was {}'.format(actualNumber))
+        guessed_n = int(input('input a number between {} and {}: '.format(low, high)))
+        print('your input is {},'.format(guessed_n))
+        if guessed_n < low or guessed_n > high:
+            print('this number is not in range, please try again,')
+        else:
+            print('this number is in range, good bye...')
             guessed = True
-        elif n_int < low:
-            print('not in range')
-        elif n_int > high:
-            print('not in range')
-    
-    return "You got it!"
-        
+    return guessed_n
  
 
 """Ask for a number between low and high until actually given one.
@@ -108,15 +99,18 @@ def stubborn_asker(low, high):
 
 
 def not_number_rejector(message):
-    while True:
+    guessed = False
+    while not guessed:
         try:
-            guessedNumber = int(input("Enter a number: "))
-            a_number = int(guessedNumber)
-            return a_number
+            guessed_n = int(input(message))
+            guessed = True     
         except ValueError:
-            print("Sorry, that is not an integer, please try again: ")
-    return
-
+            guessed = str(guessed_n)
+            print("input {}, is not an integer, please try again: ".format(guessed))
+            continue
+    answer = print('your intger is {}, good bye...'.format(guessed_n))
+    return answer
+    
 """Ask for a number repeatedly until actually given one.
 
     Ask for a number, and if the response is actually NOT a number (e.g. "cow",
@@ -128,30 +122,21 @@ def not_number_rejector(message):
 
 def super_asker(low, high):   
     guessed = False
-    actualNumber = random.randint(low, high)
-    print(actualNumber)
     while not guessed:
         try:
-            guessedNumber = input("guess a number between ("+str(low)+", "+str(high)+"): ")
-            n_int = int(guessedNumber)
-            print("you guessed {},".format(guessedNumber),)
+            guessed_n = int(input('input a number between {} and {}: '.format(low, high)))
+            print('your input is {},'.format(guessed_n))
         except ValueError:
-            print("Sorry, that is not an integer, please try again: ")
+            print("this input is not an integer, please try again: ")
             continue
-        if n_int == actualNumber:
-            print('you got it!! It was {}'.format(actualNumber))
+        if guessed_n < low or guessed_n > high:
+            print('this number is not in range, please try again,')
+        else:
+            print('this number is in range, good bye...')
             guessed = True
-        elif n_int < low:
-            print('not in range, please try again: ')
-        elif n_int > high:
-            print('not in range, please try again: ')
-        elif (n_int > low and n_int < high) and n_int < actualNumber:
-            print("in range, but try again with a bigger number: ")
-        elif (n_int > low and n_int < high) and n_int > actualNumber:
-            print("in range, but try again with a smaller number: ")
+    return guessed_n
     
-    return "You got it!"
-    
+
     """Robust asking function.
 
     Combine stubborn_asker and not_number_rejector to make a function

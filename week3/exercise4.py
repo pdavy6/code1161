@@ -7,31 +7,24 @@ import math
 
 
 def binary_search(low, high, actual_number):
-  n_list = []
-  number_a = low
-  number_b = high
-  while number_a < number_b:
-    n_list.append(number_a)
-    number_a += actual_number
-  return n_list
-  
-  first = low
-  last = len(high) - 1
-  found = False
-  while (first <= last and not found):
-    mid = (first + last) // 2
-    if n_list[mid] == actual_number:
-        found = True
+  """
+  list_n = []
+  list_n.append(low)
+  list_n.append(high)
+  """
+  tries = 0
+
+  while True:
+    guess = ((low+high) // 2)
+    if guess < actual_number:
+      low = guess + 1
+      tries += 1
+    elif guess > actual_number:
+      high = guess - 1
+      tries += 1
     else:
-           if n_list[mid] > actual_number:
-               last = last-1
-           else:
-               first = first+1
-  
-  return found
-  testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-  print(binarySearch(testlist, 3))
-  print(binarySearch(testlist, 13))
+      guess = {"guess": guess, "tries": tries}
+      return guess
 
 """Do a binary search.
 

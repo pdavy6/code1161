@@ -21,7 +21,7 @@ def fix_it(moves=True, should_move=True):
     "Duct Tape"
     "No Problem"
     """
-pass
+
 def loops_1a():
     """Make 10 stars. 
 
@@ -34,7 +34,6 @@ my_return_list =[]
 for counter in range(10)
     my_return_list.append('*')
     return my_return_list"""
-pass
 
 
 
@@ -46,7 +45,7 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-pass
+
 """
 my_return_list =[] 
 for counter in range(10) 
