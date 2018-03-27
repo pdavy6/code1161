@@ -1,2 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
-# 
+#  This week I understood the function of loops and how they operate as well as how to stop a continuous loop function. I learnt how to list varaiables in a 'list' form which was also reiterated from last week's exercise. The'stubborn asker exercise is still unclear as well as parts of the binary search. I understand the function of a binary search where by it will start with examining the middle item instead of in sequence, however I need help in claryfing minor syntax errors made through this exercise. Import function is also unclear, mainly in exercise 3.
