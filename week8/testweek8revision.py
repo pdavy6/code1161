@@ -26,7 +26,7 @@ def greet(name="Towering Timmy"):
     return a string of "Hello" and the name argument.
     E.g. if given as "Towering Timmy" it should return "Hello Towering Timmy"
     """
-    return "Hello " + str(Towering Timmy)
+    return " Hello Towering Timmy "
 
 
 def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
@@ -114,14 +114,6 @@ def best_letter_for_pets():
     """
     import string
     the_alphabet = string.ascii_lowercase
-    best_letter = ""
-    best_number = 0
-    for letter in the_alphabet:
-        count = len(pet_filter(letter))
-        if count > best_number:
-            best_number = count
-            best_letter = letter
-    return best_letter
     
 
 
@@ -151,16 +143,10 @@ def make_filler_text_dictionary():
     The dictionary should have the numbers between 3 and 7 inclusive.
     (i.e. 3, 4, 5, 6, 7 and 3 words for each)
     TIP: you'll need the requests library
-
     """
     
     import requests
     return
-    word_dictionary = {}
-    for number in range(3, 8):
-        word_dictionary[number] = []
-        for word in range(3):
-           
 
 
 def random_filler_text(number_of_words=200):
@@ -206,4 +192,3 @@ if __name__ == '__main__':
     print((fast_filler()))
     for i in range(10):
         print((i, fast_filler()))
-        
