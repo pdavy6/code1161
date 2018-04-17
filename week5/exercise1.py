@@ -1,8 +1,7 @@
 # -*- coding: UTF-8 -*-
 """Refactoring.
 
-This excercise is very similar to week 2, exercise 2. It contains a complete
-and working example, but it's very poorly written.
+This exercise contains a complete and working example, but it's very poorly written.
 
 Your job is to go through it and make it as good as you can.
 
@@ -11,21 +10,10 @@ it isn't. Take repeated code and make it into a function. Also use functions
 to encapsulate concepts. If something is done many times, maybe a map or a loop
 is called for. Etc.
 
-The resulting file should feel as close to english as possible.
-It must also pass the linter.
-
-This is the first file that will be run against the pydocstyle checker. If
-you've run the week5_system_prep.sh file you should be getting blue linter dots
-that show you where lintere errors are. If they aren't working, you should be
-getting the errors in the test output.
-
 Some functions will have directions as external comments, once you think you
 are on top of it, take these comments out. Others won't have comments and
 you'll need to figure out for yourself what to do.
 """
-
-from __future__ import division
-from __future__ import print_function
 
 
 # This is a terrible function. The rest of the functions in this file do a
@@ -44,7 +32,9 @@ def do_bunch_of_bad_things():
     print("Let's go!")
 
     triangle = {"base": 3, "height": 4}
-    triangle["hypotenuse"] = triangle["base"]**2 + triangle["height"]**2
+    b = 3
+    h = 4
+    triangle["hypotenuse"] = calculate_hypotenuse(  triangle['base'] , triangle['height'] )
     print("area = " + str((triangle["base"] * triangle["height"])/2))
     print("side lengths are:")
     print("base: {}".format(triangle["base"]))
@@ -58,7 +48,7 @@ def do_bunch_of_bad_things():
     print(yet_another_hyp)
 
 
-# return a lit of countdown messages, much like in the bad function above.
+# return a list of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
     pass
@@ -73,8 +63,11 @@ def countdown(message, start, stop, completion_message):
 # turned off by default but turned on with an optional argument.
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
+import math
 def calculate_hypotenuse(base, height):
-    pass
+    c = math.sqrt(  base*base + height*height   )
+    return c
+    
 
 
 def calculate_area(base, height):
@@ -165,17 +158,17 @@ def triangle_master(base,
 
 def wordy_pyramid():
     import requests
-    baseURL = "http://www.setgetgo.com/randomword/get.php?len="
+    baseURL = "http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength={0}&maxLength={0}&limit=1"
     pyramid_list = []
     for i in range(3, 21, 2):
-        url = baseURL + str(i)
+        url = baseURL.format(i)
         r = requests.get(url)
-        message = r.text
+        message = r.json()[0]['word']
         pyramid_list.append(message)
     for i in range(20, 3, -2):
-        url = baseURL + str(i)
+        url = baseURL.format(str(i))
         r = requests.get(url)
-        message = r.text
+        message = r.json()[0]['word']
         pyramid_list.append(message)
     return pyramid_list
 

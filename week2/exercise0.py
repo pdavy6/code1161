@@ -13,15 +13,14 @@ def add_5(a_number):
     Then you need to:
         return a_number plus five
     except expressed in python, not english
-    """
-    
+    """  
     
 
 
 def adder(a_number, another_number):
     return a_number + another_number
 
-    """Add two numbers.
+    """Add two numbers. 
 
     Same as above, but with any two numbers.
     """
@@ -63,22 +62,28 @@ def shout_with_a_number(a_string, a_number):
     """
     
 
-
-def minitest(f, args, expected):
+"""function definitions - func header + body"""
+def minitest(f, args, expected): #args/params/input, 0 - many
     """Run a function with a list of args and print a response.
 
     This is a helper. Don't edit it.
     """
-    result = f(*args)
+    result = f(*args) # add_5( 1)
     template = "expect {name}({args}) == {expected} => {result}"
     print(template.format(name=f.__name__,
                           args=str(args)[1:-1],
                           result=result == expected,
                           expected=expected))
-    return result == expected
+    return result == expected # output - not mandatory
 
+def fNull():
+    5*5
 
 if __name__ == "__main__":
+
+
+    out = adder (6, 12)
+    print( fNull() ) 
     minitest(add_5, [1], 6)
     minitest(add_5, [6], 11)
     minitest(add_5, [-3], 2)

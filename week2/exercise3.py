@@ -31,7 +31,10 @@ def loops_1a():
     """ 
 """
 my_return_list =[] 
-for counter in range(10)
+for counter in range(10): # for <var> in <list>
+    # range(start,stop,step) => generates a list of numbers, starting from 'start', stop before 'stop', increase/decrease by 'step'
+    # 1->10  ... range(1, 11, 1)
+    # [2,4,6,8] ... range(2, 9, 2)
     my_return_list.append('*')
     return my_return_list"""
 
@@ -235,6 +238,41 @@ if __name__ == "__main__":
     # code is robust to the situations that you'll see in action.
     print(is_odd(1), "is_odd odd")
     print(is_odd(4), "is_odd even")
+    a = 5
+
+    # f(x) = 5x + 4
+    #f(4) = 5*4 + 4 => 24
+
+    def g( x ):
+        res = 5*x + 4
+        #a = 5*6
+        return res
+
+    #print( g(5) )
+
+    def is_odd( x ):
+        
+        # a % b => a / b, but get me the remainder
+        # 4 / 2 -> quotient: 2, remainder: 0
+        # 4 / 2 -> quotient: 2
+        # 4 % 2 -> remainder: 0
+        
+        if 8 % 2 == 0: #even
+            #even
+            return False
+        else:
+            return True    
+
+
+    #lists
+    list1 = [11,12,13,14,'apple'] 
+    #loops: for / while
+    list1.append('*')
+    
+    for a in list1: # for <var> in <list>
+        print('item: ', a )
+
+
     print(fix_it(True, True), "fix_it")
     print(fix_it(True, False), "fix_it")
     print(fix_it(False, True), "fix_it")

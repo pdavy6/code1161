@@ -11,11 +11,11 @@ of the exercise files does what it's supposed to.
 import imp
 import os
 import sys
+from pathlib import Path
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from codeHelpers import completion_message
-from codeHelpers import nyan_cat
-from codeHelpers import test
-from codeHelpers import ex_runs
+
+
+from codeHelpers import completion_message, ex_runs, nyan_cat, test
 
 
 WEEK_NUMBER = 2
@@ -52,6 +52,17 @@ def ex3runs(path):
         print('{s:{c}^{n}}\n{s:{c}^{n}}\n'.format(n=50, c='*', s=""))
         return False
 
+def lab_book_entry_completed():
+    lab_book = Path("week2/readme.md")
+    if lab_book.is_file():
+        with open(lab_book, 'r') as f:
+            lines = f.readlines()
+            if lines == ['TODO: Reflect on what you learned this week and what is still unclear.\n']:
+                return False
+            elif lines:
+                return True
+    return False
+
 
 def theTests(path_to_code_to_check="."):
     """Run the tests."""
@@ -61,7 +72,7 @@ def theTests(path_to_code_to_check="."):
     testResults = []
 
     # Tests from here:
-    path = "{}/week{}/exercise0.py".format(path_to_code_to_check, WEEK_NUMBER)
+    path = "exercise0.py"
 
 
     if ex_runs(path_to_code_to_check, exNumber=0, weekNumber=WEEK_NUMBER):
@@ -119,17 +130,17 @@ def theTests(path_to_code_to_check="."):
             test(exercise0.shout_with_a_number("hi", 1) == "HI 1",
                  "Exercise 0: shout_with_a_number - hi, 1 => HI 1?"))
 
-    path = "{}/week{}/exercise1.py".format(path_to_code_to_check, WEEK_NUMBER)
+    path = "exercise1.py".format(path_to_code_to_check, WEEK_NUMBER)
 
 
-    path = "{}/week{}/exercise2.py".format(path_to_code_to_check, WEEK_NUMBER)
+    path = "exercise2.py".format(path_to_code_to_check, WEEK_NUMBER)
 
 
     testResults.append(
         test(ex2runs(path_to_code_to_check),
              "Exercise 2: debug the file"))
 
-    path = "{}/week{}/exercise3.py".format(path_to_code_to_check, WEEK_NUMBER)
+    path = "exercise3.py".format(path_to_code_to_check, WEEK_NUMBER)
 
 
     if ex3runs(path_to_code_to_check):
@@ -261,7 +272,7 @@ def theTests(path_to_code_to_check="."):
         testResults.append(
             test(exercise3.loops_7() == pyramid,
                  "Exercise 3: loops_7 - pyramid of stars"))
-
+    testResults.append(test(lab_book_entry_completed(), "Lab book entry completed"))
     print("{0}/{1} (passed/attempted)".format(sum(testResults),
                                               len(testResults)))
 
